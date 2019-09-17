@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<template
+    format="4"
+    revision="1"
+    name="Simple Live Card"
+    minApi="19"
+    minBuildApi="19"
+    description="Creates a new service that publishes a live card to the Glass timeline.">
+
+  <category value="Activity" />
+  <formfactor value="Glass" />
+
+  <dependency name="google-gdk" revision="4" />
+
+  <parameter
+      id="serviceClass"
+      name="Service Name"
+      type="string"
+      constraints="class|unique|nonempty"
+      default="LiveCardService"
+      help="The name of the service class to create." />
+
+  <parameter
+      id="packageName"
+      name="Package name"
+      type="string"
+      constraints="package"
+      default="com.mycompany.myapp" />
+
+  <parameter
+      id="serviceTitle"
+      name="Service Title"
+      type="string"
+      constraints="nonempty"
+      default="Hello World LiveCard"
+      suggest="Hello World LiveCard"
+      help="The human-readable name of the service. For services with voice triggers, this name will appear in the disambiguation menu if multiple Glassware share that trigger." />
+
+  <parameter
+      id="directRendering"
+      name="Live card uses direct rendering?"
+      type="boolean"
+      default="false"
+      help="If checked, this creates a direct rendering callback that draws the layout using a background thread. If unchecked, the layout will be set into the live card using RemoteViews." />
+
+  <parameter
+      id="isLauncher"
+      name="Launcher Activity"
+      type="boolean"
+      default="false"
+      help="If true, this Glassware will be launchable through a voice trigger." />
+
+  <thumbs>
+    <thumb>template_simple_live_card.png</thumb>
+  </thumbs>
+
+  <globals file="globals.xml.ftl" />
+  <execute file="recipe.xml.ftl" />
+
+</template>

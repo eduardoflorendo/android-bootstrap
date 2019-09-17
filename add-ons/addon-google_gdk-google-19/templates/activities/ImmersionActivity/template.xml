@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<template
+    format="4"
+    revision="1"
+    name="Immersion Activity"
+    minApi="19"
+    minBuildApi="19"
+    description="Creates a new activity that shows a tuggable card as an Immersion.">
+
+  <category value="Activity" />
+  <formfactor value="Glass" />
+
+  <dependency name="google-gdk" revision="4" />
+
+  <parameter
+      id="activityClass"
+      name="Activity Name"
+      type="string"
+      constraints="class|unique|nonempty"
+      default="MainActivity"
+      help="The name of the activity class to create." />
+
+  <parameter
+      id="packageName"
+      name="Package name"
+      type="string"
+      constraints="package"
+      default="com.mycompany.myapp" />
+
+  <parameter
+      id="immersionTitle"
+      name="Activity Title"
+      type="string"
+      constraints="nonempty"
+      default="Hello World Immersion"
+      suggest="Hello World Immersion"
+      help="The human-readable name of the activity. For activities with voice triggers, this name will appear in the disambiguation menu if multiple Glassware share that trigger." />
+
+  <parameter
+      id="isLauncher"
+      name="Launcher Activity"
+      type="boolean"
+      default="false"
+      help="If true, this Glassware will be launchable through a voice trigger" />
+
+  <thumbs>
+    <thumb>template_immersion_activity.png</thumb>
+  </thumbs>
+
+  <globals file="globals.xml.ftl" />
+  <execute file="recipe.xml.ftl" />
+
+</template>
